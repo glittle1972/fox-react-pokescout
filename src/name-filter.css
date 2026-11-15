@@ -1,0 +1,5 @@
+.filters{grid-template-columns:repeat(4,minmax(0,1fr))}
+.name-wrap input{appearance:none;border:0;outline:0;background:transparent;width:100%;min-width:0;height:100%;padding:0 9px;color:#4a5c50;font:600 11px 'DM Sans',sans-serif}
+.name-wrap input::placeholder{color:#a2ada5;opacity:1}
+.name-wrap input::-webkit-search-cancel-button{cursor:pointer}
+@media(max-width:760px){.filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
