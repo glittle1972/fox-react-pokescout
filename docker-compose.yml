@@ -1,0 +1,21 @@
+services:
+  app:
+    image: ghcr.io/glittle1972/fox-react-pokescout:latest
+    container_name: pokescout
+    restart: unless-stopped
+
+    networks:
+      - web
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web"
+      - "traefik.http.routers.pokescout.rule=Host(`pokescout.gwl.org.uk`)"
+      - "traefik.http.routers.pokescout.entrypoints=https"
+      - "traefik.http.routers.pokescout.tls=true"
+#      - "traefik.http.routers.pokescout.tls.certresolver=cloudflare"
+      - "traefik.http.services.pokescout.loadbalancer.server.port=80"
+
+networks:
+  web:
+    external: true
